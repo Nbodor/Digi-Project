@@ -1,0 +1,613 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		93C04F4C28E1787B009DD6A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C04F4B28E1787B009DD6A5 /* AppDelegate.swift */; };
+		93C04F4E28E1787B009DD6A5 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 93C04F4D28E1787B009DD6A5 /* GameScene.sks */; };
+		93C04F5028E1787B009DD6A5 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 93C04F4F28E1787B009DD6A5 /* Actions.sks */; };
+		93C04F5228E1787B009DD6A5 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C04F5128E1787B009DD6A5 /* GameScene.swift */; };
+		93C04F5428E1787B009DD6A5 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C04F5328E1787B009DD6A5 /* GameViewController.swift */; };
+		93C04F5728E1787B009DD6A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93C04F5528E1787B009DD6A5 /* Main.storyboard */; };
+		93C04F5928E17880009DD6A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93C04F5828E17880009DD6A5 /* Assets.xcassets */; };
+		93C04F5C28E17880009DD6A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93C04F5A28E17880009DD6A5 /* LaunchScreen.storyboard */; };
+		93C04F6628E17880009DD6A5 /* Digi_GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C04F6528E17880009DD6A5 /* Digi_GameTests.swift */; };
+		93C04F7028E17880009DD6A5 /* Digi_GameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C04F6F28E17880009DD6A5 /* Digi_GameUITests.swift */; };
+		93C04F7228E17880009DD6A5 /* Digi_GameUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C04F7128E17880009DD6A5 /* Digi_GameUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		93C04F6228E17880009DD6A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93C04F4028E1787B009DD6A5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93C04F4728E1787B009DD6A5;
+			remoteInfo = "Digi Game";
+		};
+		93C04F6C28E17880009DD6A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93C04F4028E1787B009DD6A5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93C04F4728E1787B009DD6A5;
+			remoteInfo = "Digi Game";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		93C04F4828E1787B009DD6A5 /* Digi Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Digi Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93C04F4B28E1787B009DD6A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		93C04F4D28E1787B009DD6A5 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		93C04F4F28E1787B009DD6A5 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		93C04F5128E1787B009DD6A5 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		93C04F5328E1787B009DD6A5 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		93C04F5628E1787B009DD6A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		93C04F5828E17880009DD6A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		93C04F5B28E17880009DD6A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		93C04F6128E17880009DD6A5 /* Digi GameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Digi GameTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93C04F6528E17880009DD6A5 /* Digi_GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digi_GameTests.swift; sourceTree = "<group>"; };
+		93C04F6B28E17880009DD6A5 /* Digi GameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Digi GameUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93C04F6F28E17880009DD6A5 /* Digi_GameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digi_GameUITests.swift; sourceTree = "<group>"; };
+		93C04F7128E17880009DD6A5 /* Digi_GameUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digi_GameUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		93C04F4528E1787B009DD6A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93C04F5E28E17880009DD6A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93C04F6828E17880009DD6A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		93C04F3F28E1787B009DD6A5 = {
+			isa = PBXGroup;
+			children = (
+				93C04F4A28E1787B009DD6A5 /* Digi Game */,
+				93C04F6428E17880009DD6A5 /* Digi GameTests */,
+				93C04F6E28E17880009DD6A5 /* Digi GameUITests */,
+				93C04F4928E1787B009DD6A5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		93C04F4928E1787B009DD6A5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93C04F4828E1787B009DD6A5 /* Digi Game.app */,
+				93C04F6128E17880009DD6A5 /* Digi GameTests.xctest */,
+				93C04F6B28E17880009DD6A5 /* Digi GameUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		93C04F4A28E1787B009DD6A5 /* Digi Game */ = {
+			isa = PBXGroup;
+			children = (
+				93C04F4B28E1787B009DD6A5 /* AppDelegate.swift */,
+				93C04F4D28E1787B009DD6A5 /* GameScene.sks */,
+				93C04F4F28E1787B009DD6A5 /* Actions.sks */,
+				93C04F5128E1787B009DD6A5 /* GameScene.swift */,
+				93C04F5328E1787B009DD6A5 /* GameViewController.swift */,
+				93C04F5528E1787B009DD6A5 /* Main.storyboard */,
+				93C04F5828E17880009DD6A5 /* Assets.xcassets */,
+				93C04F5A28E17880009DD6A5 /* LaunchScreen.storyboard */,
+			);
+			path = "Digi Game";
+			sourceTree = "<group>";
+		};
+		93C04F6428E17880009DD6A5 /* Digi GameTests */ = {
+			isa = PBXGroup;
+			children = (
+				93C04F6528E17880009DD6A5 /* Digi_GameTests.swift */,
+			);
+			path = "Digi GameTests";
+			sourceTree = "<group>";
+		};
+		93C04F6E28E17880009DD6A5 /* Digi GameUITests */ = {
+			isa = PBXGroup;
+			children = (
+				93C04F6F28E17880009DD6A5 /* Digi_GameUITests.swift */,
+				93C04F7128E17880009DD6A5 /* Digi_GameUITestsLaunchTests.swift */,
+			);
+			path = "Digi GameUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		93C04F4728E1787B009DD6A5 /* Digi Game */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93C04F7528E17880009DD6A5 /* Build configuration list for PBXNativeTarget "Digi Game" */;
+			buildPhases = (
+				93C04F4428E1787B009DD6A5 /* Sources */,
+				93C04F4528E1787B009DD6A5 /* Frameworks */,
+				93C04F4628E1787B009DD6A5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Digi Game";
+			productName = "Digi Game";
+			productReference = 93C04F4828E1787B009DD6A5 /* Digi Game.app */;
+			productType = "com.apple.product-type.application";
+		};
+		93C04F6028E17880009DD6A5 /* Digi GameTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93C04F7828E17880009DD6A5 /* Build configuration list for PBXNativeTarget "Digi GameTests" */;
+			buildPhases = (
+				93C04F5D28E17880009DD6A5 /* Sources */,
+				93C04F5E28E17880009DD6A5 /* Frameworks */,
+				93C04F5F28E17880009DD6A5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				93C04F6328E17880009DD6A5 /* PBXTargetDependency */,
+			);
+			name = "Digi GameTests";
+			productName = "Digi GameTests";
+			productReference = 93C04F6128E17880009DD6A5 /* Digi GameTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		93C04F6A28E17880009DD6A5 /* Digi GameUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93C04F7B28E17880009DD6A5 /* Build configuration list for PBXNativeTarget "Digi GameUITests" */;
+			buildPhases = (
+				93C04F6728E17880009DD6A5 /* Sources */,
+				93C04F6828E17880009DD6A5 /* Frameworks */,
+				93C04F6928E17880009DD6A5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				93C04F6D28E17880009DD6A5 /* PBXTargetDependency */,
+			);
+			name = "Digi GameUITests";
+			productName = "Digi GameUITests";
+			productReference = 93C04F6B28E17880009DD6A5 /* Digi GameUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		93C04F4028E1787B009DD6A5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					93C04F4728E1787B009DD6A5 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					93C04F6028E17880009DD6A5 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 93C04F4728E1787B009DD6A5;
+					};
+					93C04F6A28E17880009DD6A5 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 93C04F4728E1787B009DD6A5;
+					};
+				};
+			};
+			buildConfigurationList = 93C04F4328E1787B009DD6A5 /* Build configuration list for PBXProject "Digi Game" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 93C04F3F28E1787B009DD6A5;
+			productRefGroup = 93C04F4928E1787B009DD6A5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				93C04F4728E1787B009DD6A5 /* Digi Game */,
+				93C04F6028E17880009DD6A5 /* Digi GameTests */,
+				93C04F6A28E17880009DD6A5 /* Digi GameUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		93C04F4628E1787B009DD6A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93C04F5728E1787B009DD6A5 /* Main.storyboard in Resources */,
+				93C04F4E28E1787B009DD6A5 /* GameScene.sks in Resources */,
+				93C04F5928E17880009DD6A5 /* Assets.xcassets in Resources */,
+				93C04F5C28E17880009DD6A5 /* LaunchScreen.storyboard in Resources */,
+				93C04F5028E1787B009DD6A5 /* Actions.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93C04F5F28E17880009DD6A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93C04F6928E17880009DD6A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		93C04F4428E1787B009DD6A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93C04F5228E1787B009DD6A5 /* GameScene.swift in Sources */,
+				93C04F5428E1787B009DD6A5 /* GameViewController.swift in Sources */,
+				93C04F4C28E1787B009DD6A5 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93C04F5D28E17880009DD6A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93C04F6628E17880009DD6A5 /* Digi_GameTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93C04F6728E17880009DD6A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93C04F7028E17880009DD6A5 /* Digi_GameUITests.swift in Sources */,
+				93C04F7228E17880009DD6A5 /* Digi_GameUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		93C04F6328E17880009DD6A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93C04F4728E1787B009DD6A5 /* Digi Game */;
+			targetProxy = 93C04F6228E17880009DD6A5 /* PBXContainerItemProxy */;
+		};
+		93C04F6D28E17880009DD6A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93C04F4728E1787B009DD6A5 /* Digi Game */;
+			targetProxy = 93C04F6C28E17880009DD6A5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		93C04F5528E1787B009DD6A5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93C04F5628E1787B009DD6A5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		93C04F5A28E17880009DD6A5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93C04F5B28E17880009DD6A5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		93C04F7328E17880009DD6A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		93C04F7428E17880009DD6A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		93C04F7628E17880009DD6A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G9WTFVUFW6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "nikola.Digi-Game";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		93C04F7728E17880009DD6A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G9WTFVUFW6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "nikola.Digi-Game";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		93C04F7928E17880009DD6A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G9WTFVUFW6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "nikola.Digi-GameTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Digi Game.app/Digi Game";
+			};
+			name = Debug;
+		};
+		93C04F7A28E17880009DD6A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G9WTFVUFW6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "nikola.Digi-GameTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Digi Game.app/Digi Game";
+			};
+			name = Release;
+		};
+		93C04F7C28E17880009DD6A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G9WTFVUFW6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "nikola.Digi-GameUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Digi Game";
+			};
+			name = Debug;
+		};
+		93C04F7D28E17880009DD6A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G9WTFVUFW6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "nikola.Digi-GameUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Digi Game";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		93C04F4328E1787B009DD6A5 /* Build configuration list for PBXProject "Digi Game" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93C04F7328E17880009DD6A5 /* Debug */,
+				93C04F7428E17880009DD6A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93C04F7528E17880009DD6A5 /* Build configuration list for PBXNativeTarget "Digi Game" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93C04F7628E17880009DD6A5 /* Debug */,
+				93C04F7728E17880009DD6A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93C04F7828E17880009DD6A5 /* Build configuration list for PBXNativeTarget "Digi GameTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93C04F7928E17880009DD6A5 /* Debug */,
+				93C04F7A28E17880009DD6A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93C04F7B28E17880009DD6A5 /* Build configuration list for PBXNativeTarget "Digi GameUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93C04F7C28E17880009DD6A5 /* Debug */,
+				93C04F7D28E17880009DD6A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 93C04F4028E1787B009DD6A5 /* Project object */;
+}
