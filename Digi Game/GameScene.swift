@@ -37,6 +37,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         addBackground()
         addPlayer()
+        addControls()
         
         physicsWorld.gravity = CGVector(dx: 0.0, dy: -5.0)
         physicsWorld.contactDelegate = self
@@ -67,15 +68,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         player.run(SKAction.repeatForever(animation))
         
-        player.physicsBody = SKPhysicsBody(texture: frames[0], size: frames[0].size())
+        player.physicsBody = SKPhysicsBody(texture: frames[0], size: player.size)
         player.physicsBody!.contactTestBitMask = player.physicsBody!.collisionBitMask
 //        player.physicsBody?.isDynamic = true  // default already
         
-        player.physicsBody?.affectedByGravity = true
+        player.physicsBody?.affectedByGravity = false
         
         
         addChild(player)
     }
+    
+    private func addControls() {
+        
+        let left = SKSpriteNode(imageNamed: "arrow")
+        left.size = CGSize(width: 100, height: 100)
+        left.position = CGPoint(x: 100, y: 100)
+        left.zPosition = 10
+        
+        addChild(left)
+        
+    }
+    
     
     private func jump() {
         // TODO: preload frames to avoid lag when jumping the first time
