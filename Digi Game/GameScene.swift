@@ -9,8 +9,6 @@ import SpriteKit
 import GameplayKit
 
 
-private let JUMP_VECTOR = CGVector(dx: 0, dy: 325)
-
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     private let player = Player()
@@ -19,36 +17,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var gameScore = 0
     private let scoreLabel = SKLabelNode(fontNamed: "The Bold Font")
     private let livesLabel = SKLabelNode(fontNamed: "The Bold Font")
-    
-    class Controls {
-        let left, right, up: SKSpriteNode
-        
-        init(scene: GameScene) {
-            left = SKSpriteNode(imageNamed: "arrow")
-            let arrowAspectRatio: Double = left.size.width / left.size.height
-            left.size = CGSize(width: 100, height: 100 / arrowAspectRatio)
-            left.position = CGPoint(x: 100, y: 100)
-            left.zPosition = 10
-            left.alpha = 0.5
-            left.zRotation = Double.pi
-            
-            right = SKSpriteNode(imageNamed: "arrow")
-            right.size = CGSize(width: 100, height: 100 / arrowAspectRatio)
-            right.position = CGPoint(x: 250, y: 100)
-            right.zPosition = 10
-            right.alpha = 0.5
-            right.zRotation = 0
-            
-            up = SKSpriteNode(imageNamed: "arrow")
-            up.size = CGSize(width: 100, height: 100)
-            up.position = CGPoint(x: scene.size.width - 100, y: 100)
-            up.zRotation = Double.pi / 2
-            up.alpha = 0.45
-            up.zPosition = 10
-        }
-    }
-    
-    
     
     
     override init(size: CGSize) {
@@ -62,13 +30,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         addBackground()
+        addGround()
         addPlayer()
         addControls()
-        addGround()
         addLabels()
         startLevel()
         
-        physicsWorld.gravity = CGVector(dx: 0.0, dy: -5.0)
         physicsWorld.contactDelegate = self
     }
     
@@ -83,24 +50,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     
-    private func addEnemy() {
-        let enemy = SKSpriteNode(imageNamed: "enemy")
-        enemy.name = "Enemy"
-        enemy.size = CGSize(width: 175, height: 175)
+    private func spawnEnemy() {
+        let enemy = Virus()
         enemy.position = CGPoint(x: size.width + enemy.size.width / 2, y: ground.position.y + enemy.size.height / 2)
-        enemy.zPosition = 9
-        
-        enemy.physicsBody = SKPhysicsBody(circleOfRadius: enemy.size.width / 2)
-        enemy.physicsBody?.contactTestBitMask = enemy.physicsBody!.collisionBitMask
-        
-        enemy.physicsBody?.affectedByGravity = true
-        enemy.physicsBody?.friction = 1000
-        
+   
         addChild(enemy)
         
         enemy.physicsBody?.applyImpulse(CGVector(dx: -1500, dy: 0))
 
-        enumerateChildNodes(withName: "Enemy") {
+        enumerateChildNodes(withName: "enemy") {
             node, _ in
             
             if node.position.x < -node.frame.width {
@@ -135,7 +93,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private func startLevel() {
-        let spawn = SKAction.run(addEnemy)
+        let spawn = SKAction.run(spawnEnemy)
         let waitToSpawn = SKAction.wait(forDuration: 5)
         let spawnSequence = SKAction.sequence([waitToSpawn, spawn])
         let spawnForver = SKAction.repeatForever(spawnSequence)
@@ -143,11 +101,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private func addPlayer() {
+        player.position = CGPoint(x: size.width / 2, y: ground.position.y + player.size.height / 2)
+        player.groundLevel = ground.position.y
         addChild(player)
     }
     
     private func addGround() {
-        ground.position = CGPoint(x: size.width / 2, y: player.position.y - player.size.height / 2)
+        ground.position = CGPoint(x: size.width / 2, y: 50)
         ground.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: size.width * 2, height: 1))
         ground.physicsBody?.isDynamic = false
         addChild(ground)
@@ -158,51 +118,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(controls.right)
         addChild(controls.left)
     }
-    
-    private func right() {
-        player.position.x += 100
-    }
-    
-    private func left() {
-        player.position.x -= 100
-    }
-    
-    
-    private func jump() {
-        // TODO: preload frames to avoid lag when jumping the first time
-//        let frames = Array(playerSprites.textureRow(row: PlayerAnimation.misc.rawValue)[4...5])
-//        let animation = SKAction.sequence([
-//            SKAction.moveBy(x: 0, y: 300, duration: 0.1)
-//        ])
-//        player.run(animation)
-        
-        player.zRotation = 0
-        player.physicsBody?.applyImpulse(JUMP_VECTOR)
-    }
-    
    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        if touch location inside up button
-        
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {        
         if touches.isEmpty { return }
         let touch = touches.first!.location(in: self)
         
-        if atPoint(touch) == controls.left {
-            left()
+        switch (atPoint(touch)) {
+        case controls.left: player.left()
+        case controls.right: player.right()
+        case controls.up: player.jump()
+        default: break
         }
-        
-        if atPoint(touch) == controls.right {
-            right()
-        }
-        
-        if atPoint(touch) == controls.up {
-            jump()
-        }
-        
-//        addEnemy()
-        
-//        enemy.physicsBody?.applyImpulse(CGVector(dx: -1750, dy: 0))
-        
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {

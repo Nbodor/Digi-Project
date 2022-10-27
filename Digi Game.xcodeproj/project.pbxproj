@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9312474A290652AB00CA003B /* THEBOLDFONT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93124749290652AA00CA003B /* THEBOLDFONT.ttf */; };
 		9312474C2906598100CA003B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312474B2906598100CA003B /* Player.swift */; };
+		9312474E29065CAE00CA003B /* Controls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312474D29065CAE00CA003B /* Controls.swift */; };
+		9312475029065CF200CA003B /* Virus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312474F29065CF200CA003B /* Virus.swift */; };
 		93C04F4C28E1787B009DD6A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C04F4B28E1787B009DD6A5 /* AppDelegate.swift */; };
 		93C04F5228E1787B009DD6A5 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C04F5128E1787B009DD6A5 /* GameScene.swift */; };
 		93C04F5428E1787B009DD6A5 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C04F5328E1787B009DD6A5 /* GameViewController.swift */; };
@@ -41,6 +43,8 @@
 /* Begin PBXFileReference section */
 		93124749290652AA00CA003B /* THEBOLDFONT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = THEBOLDFONT.ttf; sourceTree = "<group>"; };
 		9312474B2906598100CA003B /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		9312474D29065CAE00CA003B /* Controls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controls.swift; sourceTree = "<group>"; };
+		9312474F29065CF200CA003B /* Virus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Virus.swift; sourceTree = "<group>"; };
 		932535D52903857D0032486D /* Digi-Game-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Digi-Game-Info.plist"; sourceTree = SOURCE_ROOT; };
 		93C04F4828E1787B009DD6A5 /* Digi Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Digi Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C04F4B28E1787B009DD6A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,10 +115,12 @@
 				93C04F5328E1787B009DD6A5 /* GameViewController.swift */,
 				93C04F5528E1787B009DD6A5 /* Main.storyboard */,
 				9312474B2906598100CA003B /* Player.swift */,
+				9312474F29065CF200CA003B /* Virus.swift */,
 				93C04F5828E17880009DD6A5 /* Assets.xcassets */,
 				93C04F5A28E17880009DD6A5 /* LaunchScreen.storyboard */,
 				E254C55028E937D400D80097 /* SpriteSheet.swift */,
 				93124749290652AA00CA003B /* THEBOLDFONT.ttf */,
+				9312474D29065CAE00CA003B /* Controls.swift */,
 			);
 			path = "Digi Game";
 			sourceTree = "<group>";
@@ -268,7 +274,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9312475029065CF200CA003B /* Virus.swift in Sources */,
 				E254C55128E937D400D80097 /* SpriteSheet.swift in Sources */,
+				9312474E29065CAE00CA003B /* Controls.swift in Sources */,
 				93C04F5228E1787B009DD6A5 /* GameScene.swift in Sources */,
 				93C04F5428E1787B009DD6A5 /* GameViewController.swift in Sources */,
 				9312474C2906598100CA003B /* Player.swift in Sources */,
