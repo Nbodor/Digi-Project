@@ -11,12 +11,44 @@ import GameplayKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     private let playerSprites: SpriteSheet
     private let player: SKSpriteNode
-    private let up = SKSpriteNode(imageNamed: "arrow")
+    private var controls: Controls!
+    
+    class Controls {
+        let left, right, up: SKSpriteNode
+        
+        init(scene: GameScene) {
+            left = SKSpriteNode(imageNamed: "arrow")
+            let arrowAspectRatio: Double = left.size.width / left.size.height
+            left.size = CGSize(width: 100, height: 100 / arrowAspectRatio)
+            left.position = CGPoint(x: 100, y: 100)
+            left.zPosition = 10
+            left.alpha = 0.5
+            left.zRotation = Double.pi
+            
+            right = SKSpriteNode(imageNamed: "arrow")
+            right.size = CGSize(width: 100, height: 100 / arrowAspectRatio)
+            right.position = CGPoint(x: 250, y: 100)
+            right.zPosition = 10
+            right.alpha = 0.5
+            right.zRotation = 0
+            
+            up = SKSpriteNode(imageNamed: "arrow")
+            up.size = CGSize(width: 100, height: 100)
+            up.position = CGPoint(x: scene.size.width - 100, y: 100)
+            up.zRotation = Double.pi / 2
+            up.alpha = 0.5
+            up.zPosition = 10
+        }
+    }
+    
+    
+    
     
     override init(size: CGSize) {
         playerSprites = SpriteSheet(imageNamed: "player", rows: 3, cols: 8)
         player = SKSpriteNode(texture: playerSprites.texture(row: PlayerPosture.standing.row, col: PlayerPosture.standing.col))
         super.init(size: size)
+        controls = Controls(scene: self)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -79,29 +111,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private func addControls() {
-        let left = SKSpriteNode(imageNamed: "arrow")
-        let arrowAspectRatio: Double = left.size.width / left.size.height
-        left.size = CGSize(width: 100, height: 100 / arrowAspectRatio)
-        left.position = CGPoint(x: 100, y: 100)
-        left.zPosition = 10
-        left.alpha = 0.5
-        left.zRotation = Double.pi
-        addChild(left)
-        
-        let right = SKSpriteNode(imageNamed: "arrow")
-        right.size = CGSize(width: 100, height: 100 / arrowAspectRatio)
-        right.position = CGPoint(x: 250, y: 100)
-        right.zPosition = 10
-        right.alpha = 0.5
-        right.zRotation = 0
-        addChild(right)
-        
-        up.size = CGSize(width: 100, height: 100)
-        up.position = CGPoint(x: size.width - 100, y: 100)
-        up.zRotation = Double.pi / 2
-        up.alpha = 0.5
-        up.zPosition = 10
-        addChild(up)
+        addChild(controls.up)
+        addChild(controls.right)
+        addChild(controls.left)
+    }
+    
+    private func right() {
+        player.position.x += 100
+    }
+    
+    private func left() {
+        player.position.x -= 100
     }
     
     
@@ -119,14 +139,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //        if touch location inside up button
         
         if touches.isEmpty { return }
-        
         let touch = touches.first!.location(in: self)
         
-        if (touch.x > up.position.x - up.size.width / 2) &&
-            (touch.x < up.position.x + up.size.width / 2) &&
-            (touch.y > up.position.y - up.size.height / 2) &&
-            (touch.y < up.position.y + up.size.height / 2)
-        {
+        if atPoint(touch) == controls.left {
+            left()
+        }
+        
+        if atPoint(touch) == controls.right {
+            right()
+        }
+        
+        if atPoint(touch) == controls.up {
             jump()
         }
         
