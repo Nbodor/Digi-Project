@@ -45,7 +45,7 @@ class Player: SKSpriteNode {
         self.groundLevel = groundLevel
     }
     
-    private func reset() {
+    func reset() {
         position.y = groundLevel + size.height / 2
         zRotation = 0
     }

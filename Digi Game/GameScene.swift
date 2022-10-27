@@ -14,10 +14,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private let player = Player()
     private let ground = SKNode()
     private var controls: Controls!
-    private var gameScore = 0
-    private let scoreLabel = SKLabelNode(fontNamed: "THEBOLDFONT")
-    private let livesLabel = SKLabelNode(fontNamed: "THEBOLDFONT")
+    private let scoreLabel = SKLabelNode(fontNamed: "The Bold Font")
+    private let livesLabel = SKLabelNode(fontNamed: "The Bold Font")
     
+    private var gameScore = 0 {
+        didSet {
+            scoreLabel.text = "Score: \(gameScore)"
+        }
+    }
     
     override init(size: CGSize) {
         super.init(size: size)
@@ -28,10 +32,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private struct physicsCategories{
+    private struct PhysicsCategories {
         static let None: UInt32 = 0
         static let Player: UInt32 = 0b1 //1
         static let Virus: UInt32 = 0b10 //2
+        static let Ground: UInt32 = 0b100 //4
     }
     
     override func didMove(to view: SKView) {
@@ -62,9 +67,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    
         addChild(enemy)
         
-        enemy.physicsBody!.categoryBitMask = physicsCategories.Virus
-        enemy.physicsBody!.collisionBitMask = physicsCategories.None
-        enemy.physicsBody!.contactTestBitMask = physicsCategories.Player
+        enemy.physicsBody!.categoryBitMask = PhysicsCategories.Virus
+        enemy.physicsBody!.collisionBitMask = PhysicsCategories.Ground
+        enemy.physicsBody!.contactTestBitMask = PhysicsCategories.Player
         
         enemy.physicsBody?.applyImpulse(CGVector(dx: -1500, dy: 0))
 
@@ -80,7 +85,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func addScore() {
         gameScore += 1
-        scoreLabel.text = "Score: \(gameScore)"
+//        scoreLabel.text = "Score: \(gameScore)"
     }
     
     private func addLabels() {
@@ -114,9 +119,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.position = CGPoint(x: size.width / 2, y: ground.position.y + player.size.height / 2)
         player.groundLevel = ground.position.y
         
-        player.physicsBody!.categoryBitMask = physicsCategories.Player
-        player.physicsBody!.collisionBitMask = physicsCategories.None
-        player.physicsBody!.contactTestBitMask = physicsCategories.Virus
+        player.physicsBody!.categoryBitMask = PhysicsCategories.Player
+        player.physicsBody!.collisionBitMask = PhysicsCategories.Ground
+        player.physicsBody!.contactTestBitMask = PhysicsCategories.Virus
         
         addChild(player)
     }
@@ -125,6 +130,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ground.position = CGPoint(x: size.width / 2, y: 50)
         ground.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: size.width * 2, height: 1))
         ground.physicsBody?.isDynamic = false
+        ground.physicsBody!.categoryBitMask = PhysicsCategories.Ground
         addChild(ground)
     }
     
@@ -158,5 +164,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+    }
+    
+    
+    private func restartLevel() {
+        enumerateChildNodes(withName: "enemy") {
+            node, _ in node.removeFromParent()
+        }
+        player.reset()
+    }
+    
+    private func loseLife() {
+        // TODO: decrease life counter
+        restartLevel()
+        // TODO: play animation
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+//        if contact.bodyA
+        loseLife()
     }
 }
