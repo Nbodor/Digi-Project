@@ -10,8 +10,17 @@ import GameplayKit
 
 class GameScene: SKScene {
     private let playerSprites = SpriteSheet(imageNamed: "player", rows: 3, cols: 8)
-//    private let playerTextures = SpriteSheet(imageNamed: "player", rows: 3, cols: 8).toAtlas()
-
+    
+    private enum PlayerAnimation: Int {
+        case misc = 0
+        case running = 2
+        case walking = 1
+    }
+    
+    struct PlayerPosture {
+        static let standing = (row: PlayerAnimation.misc.rawValue, col: 3)
+    }
+    
     
     override func didMove(to view: SKView) {
         addBackground()
@@ -24,20 +33,21 @@ class GameScene: SKScene {
         background.size = CGSize(width: size.width, height: size.height)
         background.position = CGPoint(x: size.width / 2, y: size.height / 2)
         background.zPosition = 0
+//        background.zRotation = Double.pi / 2
         addChild(background)
     }
     
     private func addPlayer() {
-//        let player = SKSpriteNode(texture: playerTextures.textureNamed("frame_2_3"))
-        let player = SKSpriteNode(texture: playerSprites.texture(row: 0, col: 3))
-        player.position = CGPoint(x: size.width/4, y: 0)
-//        player.position = CGPoint(x: size.width/2, y: size.height/2)
-        player.size = CGSize(width: size.width / 10, height: size.height / 10)
+        let player = SKSpriteNode(texture: playerSprites.texture(row: PlayerPosture.standing.row, col: PlayerPosture.standing.col))
+        player.position = CGPoint(x: size.width/2, y: size.height/4)
+        player.size = CGSize(width: player.size.width*1.5, height: player.size.height*1.5)
         player.zPosition = 1
-        addChild(player)
         
-//        let animation
-//        SKAction.repeatForever(animation)
+        let frames = playerSprites.textureRow(row: PlayerAnimation.walking.rawValue)
+        let animation = SKAction.animate(with: frames, timePerFrame: 0.1)
+        player.run(SKAction.repeatForever(animation))
+        
+        addChild(player)
     }
     
    
@@ -59,5 +69,3 @@ class GameScene: SKScene {
         // Called before each frame is rendered
     }
 }
-//background.zRotation = Double.pi / 2
-//let player = SKLabelNode(imageNamed: String""))

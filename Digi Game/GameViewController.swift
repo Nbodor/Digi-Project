@@ -15,9 +15,8 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         if let view = self.view as! SKView? {
-            // Load the SKScene from 'GameScene.sks'
-            let scene = GameScene()
-            
+            let scene = GameScene(size: CGSize(width: 1334, height: 750))  // only iPhone 8/SE supported
+    
             // Set the scale mode to scale to fit the window
             scene.scaleMode = .aspectFill
             
