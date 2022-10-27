@@ -20,7 +20,7 @@ class SpriteSheet {
     
     func texture(row: Int, col: Int) -> SKTexture {
         let x = CGFloat(col) / CGFloat(cols)
-        let y = CGFloat(row) / CGFloat(rows)
+        let y = CGFloat(row) / CGFloat(rows) - 0.002  // fix image frame so it doesn't pick up the bottom of the next frame above
         let subtextureRect = CGRect(origin: CGPoint(x: x, y: y), size: frameSize)
         return SKTexture(rect: subtextureRect, in: sheet)
     }

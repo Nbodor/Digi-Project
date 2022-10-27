@@ -43,8 +43,14 @@ class GameScene: SKScene {
         player.size = CGSize(width: player.size.width*1.5, height: player.size.height*1.5)
         player.zPosition = 1
         
-        let frames = playerSprites.textureRow(row: PlayerAnimation.walking.rawValue)
-        let animation = SKAction.animate(with: frames, timePerFrame: 0.1)
+        // Walking
+        let frames = playerSprites.textureRow(row: PlayerAnimation.walking.rawValue) + playerSprites.textureRow(row: PlayerAnimation.misc.rawValue)[0...2]
+        let animation = SKAction.animate(with: frames, timePerFrame: 0.09)
+        
+        // Running
+//        let frames = playerSprites.textureRow(row: PlayerAnimation.running.rawValue)
+//        let animation = SKAction.animate(with: frames, timePerFrame: 0.07)
+        
         player.run(SKAction.repeatForever(animation))
         
         addChild(player)
