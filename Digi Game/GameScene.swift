@@ -71,6 +71,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addPlayer()
         addControls()
         addGround()
+        addEnemy()
         
         physicsWorld.gravity = CGVector(dx: 0.0, dy: -5.0)
         physicsWorld.contactDelegate = self
@@ -86,9 +87,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(background)
     }
     
+    private func addEnemy() {
+        let enemy = SKSpriteNode(imageNamed: "enemy")
+        enemy.size = CGSize(width: 100, height: 100)
+        enemy.position = CGPoint(x: size.width / 2, y: size.height / 4)
+        enemy.zPosition = 9
+        addChild(enemy)
+    }
+    
     private func addPlayer() {
-        player.position = CGPoint(x: size.width/2, y: size.height/4)
-        player.size = CGSize(width: player.size.width*1.5, height: player.size.height*1.5)
+        player.position = CGPoint(x: size.width / 2, y: size.height / 4)
+        player.size = CGSize(width: player.size.width * 1.5, height: player.size.height * 1.5)
         player.zPosition = 1
         
         // Walking
