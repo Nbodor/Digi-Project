@@ -9,7 +9,7 @@ import Foundation
 import SpriteKit
 
 
-private let JUMP_VECTOR = CGVector(dx: 0, dy: 400)
+private let JUMP_VECTOR = CGVector(dx: 0, dy: 450)
 
 class Player: SKSpriteNode {
     private let sprites: SpriteSheet

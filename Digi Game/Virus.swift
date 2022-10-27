@@ -12,15 +12,15 @@ class Virus: SKSpriteNode {
     init() {
         let texture = SKTexture(imageNamed: "enemy")
         super.init(texture: texture, color: UIColor.black, size: texture.size())
-
+        
         name = "enemy"
         size = CGSize(width: 175, height: 175)
-
+        
         zPosition = 9
-
+        
         physicsBody = SKPhysicsBody(circleOfRadius: size.width / 2)
         physicsBody?.contactTestBitMask = physicsBody!.collisionBitMask
-
+        
         physicsBody?.affectedByGravity = true
         physicsBody?.friction = 1000
     }

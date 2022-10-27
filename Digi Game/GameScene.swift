@@ -15,8 +15,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private let ground = SKNode()
     private var controls: Controls!
     private var gameScore = 0
-    private let scoreLabel = SKLabelNode(fontNamed: "The Bold Font")
-    private let livesLabel = SKLabelNode(fontNamed: "The Bold Font")
+    private let scoreLabel = SKLabelNode(fontNamed: "THEBOLDFONT")
+    private let livesLabel = SKLabelNode(fontNamed: "THEBOLDFONT")
     
     
     override init(size: CGSize) {
@@ -26,6 +26,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private struct physicsCategories{
+        static let None: UInt32 = 0
+        static let Player: UInt32 = 0b1 //1
+        static let Virus: UInt32 = 0b10 //2
     }
     
     override func didMove(to view: SKView) {
@@ -55,6 +61,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enemy.position = CGPoint(x: size.width + enemy.size.width / 2, y: ground.position.y + enemy.size.height / 2)
    
         addChild(enemy)
+        
+        enemy.physicsBody!.categoryBitMask = physicsCategories.Virus
+        enemy.physicsBody!.collisionBitMask = physicsCategories.None
+        enemy.physicsBody!.contactTestBitMask = physicsCategories.Player
         
         enemy.physicsBody?.applyImpulse(CGVector(dx: -1500, dy: 0))
 
@@ -103,6 +113,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private func addPlayer() {
         player.position = CGPoint(x: size.width / 2, y: ground.position.y + player.size.height / 2)
         player.groundLevel = ground.position.y
+        
+        player.physicsBody!.categoryBitMask = physicsCategories.Player
+        player.physicsBody!.collisionBitMask = physicsCategories.None
+        player.physicsBody!.contactTestBitMask = physicsCategories.Virus
+        
         addChild(player)
     }
     
