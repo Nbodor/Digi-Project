@@ -16,6 +16,7 @@
 		93C04F6628E17880009DD6A5 /* Digi_GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C04F6528E17880009DD6A5 /* Digi_GameTests.swift */; };
 		93C04F7028E17880009DD6A5 /* Digi_GameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C04F6F28E17880009DD6A5 /* Digi_GameUITests.swift */; };
 		93C04F7228E17880009DD6A5 /* Digi_GameUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C04F7128E17880009DD6A5 /* Digi_GameUITestsLaunchTests.swift */; };
+		E254C55128E937D400D80097 /* SpriteSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E254C55028E937D400D80097 /* SpriteSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		93C04F6B28E17880009DD6A5 /* Digi GameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Digi GameUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C04F6F28E17880009DD6A5 /* Digi_GameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digi_GameUITests.swift; sourceTree = "<group>"; };
 		93C04F7128E17880009DD6A5 /* Digi_GameUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digi_GameUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E254C55028E937D400D80097 /* SpriteSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				93C04F5528E1787B009DD6A5 /* Main.storyboard */,
 				93C04F5828E17880009DD6A5 /* Assets.xcassets */,
 				93C04F5A28E17880009DD6A5 /* LaunchScreen.storyboard */,
+				E254C55028E937D400D80097 /* SpriteSheet.swift */,
 			);
 			path = "Digi Game";
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E254C55128E937D400D80097 /* SpriteSheet.swift in Sources */,
 				93C04F5228E1787B009DD6A5 /* GameScene.swift in Sources */,
 				93C04F5428E1787B009DD6A5 /* GameViewController.swift in Sources */,
 				93C04F4C28E1787B009DD6A5 /* AppDelegate.swift in Sources */,
