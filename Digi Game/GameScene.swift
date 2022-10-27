@@ -70,6 +70,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addBackground()
         addPlayer()
         addControls()
+        addGround()
         
         physicsWorld.gravity = CGVector(dx: 0.0, dy: -5.0)
         physicsWorld.contactDelegate = self
@@ -104,10 +105,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.physicsBody!.contactTestBitMask = player.physicsBody!.collisionBitMask
 //        player.physicsBody?.isDynamic = true  // default already
         
-        player.physicsBody?.affectedByGravity = false
+        player.physicsBody?.affectedByGravity = true
         
         
         addChild(player)
+    }
+    
+    private func addGround() {
+        let ground = SKNode()
+        ground.position = CGPoint(x: size.width / 2, y: player.position.y - player.size.height / 2)
+        ground.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: size.width, height: 1))
+        ground.physicsBody?.isDynamic = false
+        addChild(ground)
     }
     
     private func addControls() {
