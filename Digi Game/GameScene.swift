@@ -13,8 +13,7 @@ private let JUMP_VECTOR = CGVector(dx: 0, dy: 325)
 
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-    private let playerSprites: SpriteSheet
-    private let player: SKSpriteNode
+    private let player = Player()
     private let ground = SKNode()
     private var controls: Controls!
     private var gameScore = 0
@@ -53,8 +52,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     override init(size: CGSize) {
-        playerSprites = SpriteSheet(imageNamed: "player", rows: 3, cols: 8)
-        player = SKSpriteNode(texture: playerSprites.texture(row: PlayerPosture.standing.row, col: PlayerPosture.standing.col))
         super.init(size: size)
         controls = Controls(scene: self)
     }
@@ -62,17 +59,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    private enum PlayerAnimation: Int {
-        case misc = 0
-        case running = 2
-        case walking = 1
-    }
-    
-    struct PlayerPosture {
-        static let standing = (row: PlayerAnimation.misc.rawValue, col: 3)
-    }
-    
     
     override func didMove(to view: SKView) {
         addBackground()
@@ -157,27 +143,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private func addPlayer() {
-        player.position = CGPoint(x: size.width / 2, y: size.height / 4)
-        player.setScale(1.5)
-        player.zPosition = 1
-        
-        // Walking
-        let frames = playerSprites.textureRow(row: PlayerAnimation.walking.rawValue) + playerSprites.textureRow(row: PlayerAnimation.misc.rawValue)[0...2]
-        let animation = SKAction.animate(with: frames, timePerFrame: 0.09)
-        
-        // Running
-//        let frames = playerSprites.textureRow(row: PlayerAnimation.running.rawValue)
-//        let animation = SKAction.animate(with: frames, timePerFrame: 0.07)
-        
-        player.run(SKAction.repeatForever(animation))
-        
-        player.physicsBody = SKPhysicsBody(texture: frames[0], size: player.size)
-        player.physicsBody!.contactTestBitMask = player.physicsBody!.collisionBitMask
-//        player.physicsBody?.isDynamic = true  // default already
-        
-        player.physicsBody?.affectedByGravity = true
-        
-        
         addChild(player)
     }
     
