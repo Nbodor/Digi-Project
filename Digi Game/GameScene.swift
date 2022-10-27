@@ -36,7 +36,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             up.size = CGSize(width: 100, height: 100)
             up.position = CGPoint(x: scene.size.width - 100, y: 100)
             up.zRotation = Double.pi / 2
-            up.alpha = 0.5
+            up.alpha = 0.45
             up.zPosition = 10
         }
     }
@@ -89,15 +89,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private func addEnemy() {
         let enemy = SKSpriteNode(imageNamed: "enemy")
-        enemy.size = CGSize(width: 100, height: 100)
-        enemy.position = CGPoint(x: size.width / 2, y: size.height / 4)
+        enemy.size = CGSize(width: 200, height: 200)
+        enemy.position = CGPoint(x: size.width - enemy.size.width / 2, y: size.height / 4)
         enemy.zPosition = 9
+        
+        enemy.physicsBody = SKPhysicsBody(circleOfRadius: enemy.size.width / 2 - 8)
+        enemy.physicsBody?.contactTestBitMask = enemy.physicsBody!.collisionBitMask
+        
+        enemy.physicsBody?.affectedByGravity = true
+        
+        
+//        let moveEnemy = SKAction.move(to: endPoint, duration: 1.5)
+//        let deleteEnemy = SKAction.removeFromParent()
+//        let enemySequence = SKAction.sequence([moveEnemy, deleteEnemy])
+//        enemy.run(enemySequence)
+        
+        
         addChild(enemy)
     }
     
     private func addPlayer() {
         player.position = CGPoint(x: size.width / 2, y: size.height / 4)
-        player.size = CGSize(width: player.size.width * 1.5, height: player.size.height * 1.5)
+        player.setScale(1.5)
         player.zPosition = 1
         
         // Walking
