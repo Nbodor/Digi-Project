@@ -17,6 +17,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private let player: SKSpriteNode
     private let ground = SKNode()
     private var controls: Controls!
+    private var gameScore = 0
+    private let scoreLabel = SKLabelNode(fontNamed: "The Bold Font")
+    private let livesLabel = SKLabelNode(fontNamed: "The Bold Font")
     
     class Controls {
         let left, right, up: SKSpriteNode
@@ -76,6 +79,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addPlayer()
         addControls()
         addGround()
+        addLabels()
         startLevel()
         
         physicsWorld.gravity = CGVector(dx: 0.0, dy: -5.0)
@@ -115,8 +119,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             if node.position.x < -node.frame.width {
                 node.removeFromParent()
+                self.addScore()
             }
         }
+    }
+    
+    func addScore() {
+        gameScore += 1
+        scoreLabel.text = "Score: \(gameScore)"
+    }
+    
+    private func addLabels() {
+        scoreLabel.text = "Score: 0"
+        scoreLabel.fontSize = 50
+        scoreLabel.fontColor = SKColor.black
+        scoreLabel.horizontalAlignmentMode = .left
+        scoreLabel.position = CGPoint(x: size.width - 225 , y: size.height - 50)
+        scoreLabel.zPosition = 100
+        self.addChild(scoreLabel)
+        
+        livesLabel.text = "Lives: 3"
+        livesLabel.fontSize = 50
+        livesLabel.fontColor = SKColor.black
+        livesLabel.horizontalAlignmentMode = .right
+        livesLabel.position = CGPoint(x: 185, y: size.height - 50)
+        livesLabel.zPosition = 100
+        self.addChild(livesLabel)
+        
     }
     
     private func startLevel() {
