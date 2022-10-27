@@ -2,7 +2,7 @@ import Foundation
 import SpriteKit
 
 
-
+/// Picks a texture for running, walking, jumping or stantionary when it gets called
 class SpriteSheet {
     private let name: String
     private let rows: Int

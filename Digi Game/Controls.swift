@@ -7,7 +7,7 @@
 
 import Foundation
 import SpriteKit
-
+/// sets the arrows size, postition, rotation and alpha
 class Controls {
     let left, right, up: SKSpriteNode
     

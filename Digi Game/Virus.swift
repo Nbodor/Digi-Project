@@ -7,7 +7,7 @@
 
 import Foundation
 import SpriteKit
-
+/// Sets the virus size, if its affected by gravity and the physics body
 class Virus: SKSpriteNode {
     init() {
         let texture = SKTexture(imageNamed: "enemy")

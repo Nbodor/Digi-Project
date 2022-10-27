@@ -9,15 +9,15 @@ import SpriteKit
 import GameplayKit
 
 
-
+///
 class GameScene: SKScene, SKPhysicsContactDelegate {
-    private let player = Player()
-    private let ground = SKNode()
-    private var controls: Controls!
-    private let scoreLabel = SKLabelNode(fontNamed: "The Bold Font")
-    private let livesLabel = SKLabelNode(fontNamed: "The Bold Font")
-    
-    private var gameScore = 0 {
+    private let player = Player() ///
+    private let ground = SKNode() /// Adds ground as an SKNode
+    private var controls: Controls! ///
+    private let scoreLabel = SKLabelNode(fontNamed: "The Bold Font") /// Adds scoreLabel as a SKLabelNode and sats the font as The Bold Font
+    private let livesLabel = SKLabelNode(fontNamed: "The Bold Font") /// Adds livesLabel as a SKLabelNode and sats the font as The Bold Font
+    private var livesNumber = 5 /// Sets the amount of lives
+    private var gameScore = 0 { /// Add the updated gamescore onto the label
         didSet {
             scoreLabel.text = "Score: \(gameScore)"
         }
@@ -82,7 +82,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
     }
-    
+    /// Adds a +1 to the score
     func addScore() {
         gameScore += 1
 //        scoreLabel.text = "Score: \(gameScore)"
@@ -97,7 +97,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.zPosition = 100
         self.addChild(scoreLabel)
         
-        livesLabel.text = "Lives: 3"
+        livesLabel.text = "Lives: 5"
         livesLabel.fontSize = 50
         livesLabel.fontColor = SKColor.black
         livesLabel.horizontalAlignmentMode = .right
@@ -175,9 +175,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private func loseLife() {
-        // TODO: decrease life counter
+        livesNumber -= 1
+        livesLabel.text = "Lives:\(livesNumber)"
         restartLevel()
-        // TODO: play animation
+        
+        if livesNumber == 0 {
+            gameScore = 0
+            livesNumber = 6
+            player.position.y = 0 + size.height / 2
+            player.zRotation = 0
+        }
     }
     
     func didBegin(_ contact: SKPhysicsContact) {

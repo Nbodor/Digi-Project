@@ -8,11 +8,11 @@
 import Foundation
 import SpriteKit
 
-
+/// Sets how much of a jump the player gets
 private let JUMP_VECTOR = CGVector(dx: 0, dy: 450)
-
+/// Sets the player size, if the player is affected by gravity, the physics body, where the player spawns and which textures to use for walking or running
 class Player: SKSpriteNode {
-    private let sprites: SpriteSheet
+    private let sprites: SpriteSheet /// 
     public var groundLevel: CGFloat = 0
     
     init() {
@@ -44,12 +44,12 @@ class Player: SKSpriteNode {
     func setGroundLevel(_ groundLevel: CGFloat) {
         self.groundLevel = groundLevel
     }
-    
+    /// Makes the player go back to its orignal Y and rotates him back to normal
     func reset() {
         position.y = groundLevel + size.height / 2
         zRotation = 0
     }
-    
+    /// Makes the player jump and get reset back to standing up, when it gets called whenever someone presses the up arrow button
     func jump() {
         // TODO: preload frames to avoid lag when jumping the first time
 //        let frames = Array(playerSprites.textureRow(row: PlayerAnimation.misc.rawValue)[4...5])
@@ -61,12 +61,12 @@ class Player: SKSpriteNode {
         reset()
         physicsBody?.applyImpulse(JUMP_VECTOR)
     }
-    
+    /// Makes the player go right and get reset back to standing up, when it gets called whenever someone presses the right arrow button
     func right() {
         reset()
         position.x += 100
     }
-    
+    /// Makes the player go left and get reset back to standing up, when it gets called whenever someone presses the left arrow button
     func left() {
         reset()
         position.x -= 100
