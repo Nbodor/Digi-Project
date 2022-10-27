@@ -93,11 +93,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enemy.position = CGPoint(x: size.width - enemy.size.width / 2, y: size.height / 4)
         enemy.zPosition = 9
         
-        enemy.physicsBody = SKPhysicsBody(circleOfRadius: enemy.size.width / 2 - 8)
+        enemy.physicsBody = SKPhysicsBody(circleOfRadius: enemy.size.width / 2)
         enemy.physicsBody?.contactTestBitMask = enemy.physicsBody!.collisionBitMask
         
         enemy.physicsBody?.affectedByGravity = true
         
+        enemy.physicsBody?.applyForce(CGVector(dx: -100, dy: 0))
         
 //        let moveEnemy = SKAction.move(to: endPoint, duration: 1.5)
 //        let deleteEnemy = SKAction.removeFromParent()
