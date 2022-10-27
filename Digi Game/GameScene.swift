@@ -79,14 +79,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private func addControls() {
-        
         let left = SKSpriteNode(imageNamed: "arrow")
         left.size = CGSize(width: 100, height: 100)
         left.position = CGPoint(x: 100, y: 100)
         left.zPosition = 10
-        
         addChild(left)
         
+        let right = SKSpriteNode(imageNamed: "arrow")
+        right.size = CGSize(width: 100, height: 100)
+        right.position = CGPoint(x: 250, y: 100)
+        right.zPosition = 10
+        right.zRotation = Double.pi
+        addChild(right)
     }
     
     
