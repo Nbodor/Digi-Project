@@ -8,9 +8,14 @@
 import SpriteKit
 import GameplayKit
 
+
+private let JUMP_VECTOR = CGVector(dx: 0, dy: 325)
+
+
 class GameScene: SKScene, SKPhysicsContactDelegate {
     private let playerSprites: SpriteSheet
     private let player: SKSpriteNode
+    private let ground = SKNode()
     private var controls: Controls!
     
     class Controls {
@@ -71,7 +76,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addPlayer()
         addControls()
         addGround()
-        addEnemy()
+        startLevel()
         
         physicsWorld.gravity = CGVector(dx: 0.0, dy: -5.0)
         physicsWorld.contactDelegate = self
@@ -87,26 +92,39 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(background)
     }
     
+    
     private func addEnemy() {
         let enemy = SKSpriteNode(imageNamed: "enemy")
-        enemy.size = CGSize(width: 200, height: 200)
-        enemy.position = CGPoint(x: size.width - enemy.size.width / 2, y: size.height / 4)
+        enemy.name = "Enemy"
+        enemy.size = CGSize(width: 175, height: 175)
+        enemy.position = CGPoint(x: size.width + enemy.size.width / 2, y: ground.position.y + enemy.size.height / 2)
         enemy.zPosition = 9
         
         enemy.physicsBody = SKPhysicsBody(circleOfRadius: enemy.size.width / 2)
         enemy.physicsBody?.contactTestBitMask = enemy.physicsBody!.collisionBitMask
         
         enemy.physicsBody?.affectedByGravity = true
-        
-        enemy.physicsBody?.applyForce(CGVector(dx: -100, dy: 0))
-        
-//        let moveEnemy = SKAction.move(to: endPoint, duration: 1.5)
-//        let deleteEnemy = SKAction.removeFromParent()
-//        let enemySequence = SKAction.sequence([moveEnemy, deleteEnemy])
-//        enemy.run(enemySequence)
-        
+        enemy.physicsBody?.friction = 1000
         
         addChild(enemy)
+        
+        enemy.physicsBody?.applyImpulse(CGVector(dx: -1500, dy: 0))
+
+        enumerateChildNodes(withName: "Enemy") {
+            node, _ in
+            
+            if node.position.x < -node.frame.width {
+                node.removeFromParent()
+            }
+        }
+    }
+    
+    private func startLevel() {
+        let spawn = SKAction.run(addEnemy)
+        let waitToSpawn = SKAction.wait(forDuration: 5)
+        let spawnSequence = SKAction.sequence([waitToSpawn, spawn])
+        let spawnForver = SKAction.repeatForever(spawnSequence)
+        self.run(spawnForver)
     }
     
     private func addPlayer() {
@@ -135,9 +153,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private func addGround() {
-        let ground = SKNode()
         ground.position = CGPoint(x: size.width / 2, y: player.position.y - player.size.height / 2)
-        ground.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: size.width, height: 1))
+        ground.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: size.width * 2, height: 1))
         ground.physicsBody?.isDynamic = false
         addChild(ground)
     }
@@ -159,11 +176,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private func jump() {
         // TODO: preload frames to avoid lag when jumping the first time
-        let frames = Array(playerSprites.textureRow(row: PlayerAnimation.misc.rawValue)[4...5])
-        let animation = SKAction.sequence([
-            SKAction.moveBy(x: 0, y: 100, duration: 0.1)
-        ])
-        player.run(animation)
+//        let frames = Array(playerSprites.textureRow(row: PlayerAnimation.misc.rawValue)[4...5])
+//        let animation = SKAction.sequence([
+//            SKAction.moveBy(x: 0, y: 300, duration: 0.1)
+//        ])
+//        player.run(animation)
+        
+        player.zRotation = 0
+        player.physicsBody?.applyImpulse(JUMP_VECTOR)
     }
     
    
@@ -184,6 +204,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if atPoint(touch) == controls.up {
             jump()
         }
+        
+//        addEnemy()
+        
+//        enemy.physicsBody?.applyImpulse(CGVector(dx: -1750, dy: 0))
         
     }
     
