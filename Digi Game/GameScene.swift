@@ -13,7 +13,13 @@ class GameScene: SKScene {
 
     
     override func didMove(to view: SKView) {
-       
+        let background = SKSpriteNode(imageNamed: "background")
+        background.size = CGSize(width: size.width, height: size.height)
+        background.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        addChild(background)
+        
+        
+        
     }
     
     
@@ -36,3 +42,5 @@ class GameScene: SKScene {
         // Called before each frame is rendered
     }
 }
+//background.zRotation = Double.pi / 2
+//let player = SKLabelNode(imageNamed: String""))
