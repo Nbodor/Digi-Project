@@ -8,8 +8,20 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
-    private let playerSprites = SpriteSheet(imageNamed: "player", rows: 3, cols: 8)
+class GameScene: SKScene, SKPhysicsContactDelegate {
+    private let playerSprites: SpriteSheet
+    private let player: SKSpriteNode
+    
+    
+    override init(size: CGSize) {
+        playerSprites = SpriteSheet(imageNamed: "player", rows: 3, cols: 8)
+        player = SKSpriteNode(texture: playerSprites.texture(row: PlayerPosture.standing.row, col: PlayerPosture.standing.col))
+        super.init(size: size)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private enum PlayerAnimation: Int {
         case misc = 0
@@ -25,6 +37,9 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         addBackground()
         addPlayer()
+        
+        physicsWorld.gravity = CGVector(dx: 0.0, dy: -5.0)
+        physicsWorld.contactDelegate = self
     }
     
     
@@ -38,7 +53,6 @@ class GameScene: SKScene {
     }
     
     private func addPlayer() {
-        let player = SKSpriteNode(texture: playerSprites.texture(row: PlayerPosture.standing.row, col: PlayerPosture.standing.col))
         player.position = CGPoint(x: size.width/2, y: size.height/4)
         player.size = CGSize(width: player.size.width*1.5, height: player.size.height*1.5)
         player.zPosition = 1
@@ -53,12 +67,28 @@ class GameScene: SKScene {
         
         player.run(SKAction.repeatForever(animation))
         
+        player.physicsBody = SKPhysicsBody(texture: frames[0], size: frames[0].size())
+        player.physicsBody!.contactTestBitMask = player.physicsBody!.collisionBitMask
+//        player.physicsBody?.isDynamic = true  // default already
+        
+        player.physicsBody?.affectedByGravity = true
+        
+        
         addChild(player)
+    }
+    
+    private func jump() {
+        // TODO: preload frames to avoid lag when jumping the first time
+        let frames = Array(playerSprites.textureRow(row: PlayerAnimation.misc.rawValue)[4...5])
+        let animation = SKAction.sequence([
+            SKAction.moveBy(x: 0, y: 100, duration: 0.1)
+        ])
+        player.run(animation)
     }
     
    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-      
+        jump()
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
