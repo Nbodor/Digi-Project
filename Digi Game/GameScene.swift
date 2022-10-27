@@ -11,7 +11,7 @@ import GameplayKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     private let playerSprites: SpriteSheet
     private let player: SKSpriteNode
-    
+    private let up = SKSpriteNode(imageNamed: "arrow")
     
     override init(size: CGSize) {
         playerSprites = SpriteSheet(imageNamed: "player", rows: 3, cols: 8)
@@ -95,6 +95,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         right.alpha = 0.5
         right.zRotation = 0
         addChild(right)
+        
+        up.size = CGSize(width: 100, height: 100)
+        up.position = CGPoint(x: size.width - 100, y: 100)
+        up.zRotation = Double.pi / 2
+        up.alpha = 0.5
+        up.zPosition = 10
+        addChild(up)
     }
     
     
@@ -109,7 +116,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        jump()
+//        if touch location inside up button
+        
+        if touches.isEmpty { return }
+        
+        let touch = touches.first!.location(in: self)
+        
+        if (touch.x > up.position.x - up.size.width / 2) &&
+            (touch.x < up.position.x + up.size.width / 2) &&
+            (touch.y > up.position.y - up.size.height / 2) &&
+            (touch.y < up.position.y + up.size.height / 2)
+        {
+            jump()
+        }
+        
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
