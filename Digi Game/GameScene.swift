@@ -16,7 +16,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var controls: Controls! ///
     private let scoreLabel = SKLabelNode(fontNamed: "The Bold Font") /// Adds scoreLabel as a SKLabelNode and sats the font as The Bold Font
     private let livesLabel = SKLabelNode(fontNamed: "The Bold Font") /// Adds livesLabel as a SKLabelNode and sats the font as The Bold Font
-    private var livesNumber = 5 /// Sets the amount of lives
+    private var livesNumber = 6 /// Sets the amount of lives
     private var gameScore = 0 { /// Add the updated gamescore onto the label
         didSet {
             scoreLabel.text = "Score: \(gameScore)"
@@ -85,7 +85,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     /// Adds a +1 to the score
     func addScore() {
         gameScore += 1
-//        scoreLabel.text = "Score: \(gameScore)"
     }
     
     private func addLabels() {
@@ -163,9 +162,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
     }
     
+    private func gameOver() {
+        gameScore = 0
+        livesNumber = 6
+        player.position.y = 0 + size.height / 2
+        player.zRotation = 0
+    }
     
     private func restartLevel() {
         enumerateChildNodes(withName: "enemy") {
@@ -180,15 +184,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         restartLevel()
         
         if livesNumber == 0 {
-            gameScore = 0
-            livesNumber = 6
-            player.position.y = 0 + size.height / 2
-            player.zRotation = 0
+            gameOver()
         }
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-//        if contact.bodyA
         loseLife()
     }
 }
